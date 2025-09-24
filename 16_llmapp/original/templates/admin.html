@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>管理画面 - 現場報告一覧</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <h1>現場報告一覧</h1>
+        <div id="admin-chat-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>写真</th>
+                        <th>緯度</th>
+                        <th>経度</th>
+                        <th>日時</th>
+                        <th>マップリンク</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for r in reports %}
+                    <tr>
+                        <td data-label="ID">{{ r['id'] }}</td>
+                        <td data-label="写真">
+                            {% if r['photo_path'] %}
+                            <a href="{{ url_for('static', filename='uploads/' + r['photo_path']) }}" target="_blank">
+                                <img src="{{ url_for('static', filename='uploads/' + r['photo_path']) }}" alt="photo" class="thumb">
+                            </a>
+                            {% else %}
+                            なし
+                            {% endif %}
+                        </td>
+                        <td data-label="緯度">{{ r['latitude'] or '-' }}</td>
+                        <td data-label="経度">{{ r['longitude'] or '-' }}</td>
+                        <td data-label="日時">{{ r['created_at'] }}</td>
+                        <td data-label="マップリンク">
+                            {% if r['latitude'] and r['longitude'] %}
+                            <a href="https://www.google.com/maps?q={{ r['latitude'] }},{{ r['longitude'] }}" target="_blank">地図を見る</a>
+                            {% else %}
+                            -
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

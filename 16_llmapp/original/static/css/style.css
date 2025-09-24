@@ -1,0 +1,100 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+h1 {
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+
+#chat-box {
+    max-width: 800px;
+    margin: 10px auto;
+    height: 55vh;
+    border: 1px solid #ccc;
+    overflow-y: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.chat-message {
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+.chat-staff {
+    text-align: right;
+    background-color: #e0f7fa;
+    padding: 5px;
+    border-radius: 5px;
+    max-width: 100%;
+}
+
+.chat-system {
+    text-align: left;
+    background-color: #f1f1f1;
+    padding: 5px;
+    border-radius: 5px;
+    max-width: 100%;
+}
+
+.thumb {
+    max-width: 100%;
+    height: auto;
+    margin-top: 3px;
+    display: block;
+}
+
+.photo-address {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 2px;
+    word-wrap: break-word;
+}
+
+.floating-form {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.floating-form * {
+    max-width: 100%;
+}
+
+.floating-form input[type="text"] {
+    flex: 1 1 200px;
+    padding: 5px;
+}
+
+.floating-form button, .floating-form input[type="file"] {
+    flex: 0 0 auto;
+    padding: 5px 10px;
+}
+
+/* --- レスポンシブ時のフローティングフォーム縦幅調整 --- */
+@media (max-width: 600px) {
+    .floating-form input[type="text"] {
+        padding: 2px 5px; /* 文字入力欄の縦パディングを減らす */
+        height: 1.5em;    /* 縦幅を半分程度に */
+    }
+
+    .floating-form button, 
+    .floating-form input[type="file"] {
+        padding: 3px 5px; /* ボタンの縦パディングを減らす */
+    }
+}

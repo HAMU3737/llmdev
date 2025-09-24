@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>現場報告</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>現場到着報告</h1>
+    <div id="chat-box"></div>
+
+    <div class="floating-form">
+        <button id="start-work">作業開始</button>
+        <input type="file" id="photo" name="photo" accept="image/*" capture="environment">
+        <button id="send-photo">写真送信</button>
+        <input type="text" id="message" placeholder="メッセージを入力">
+        <button id="send-chat">チャット送信</button>
+        <button id="send-both">写真＋チャット送信</button>
+        <button id="end-work">作業終了</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</body>
+</html>
